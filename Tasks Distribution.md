@@ -27,7 +27,7 @@ This document outlines the use case distribution among the team members for the 
   - Task: The user can pay using a credit/debit card or benefit pay.
 
 
-5.	**Mohammed Hamood**
+4.	**Mohammed Hamood**
   - Use Case: Customer Services
   - Task: The user can contact the employee for any service they want to ask.
 
