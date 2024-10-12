@@ -21,10 +21,12 @@ This document outlines the use case distribution among the team members for the 
    - Use Case: Register
    - Task: Develop the user registration feature to allow new users to create accounts.
 
-3. Mansoor Saleh  
-   - Use Case: Payment
-   - Task: User can able to pay using credit / debit card or using benefit pay.
-  
-4. Mohammed Hamood 
-   - Use Case: Customer Services  
-   - Task: The user can contact with the employee for any kind of services they want to ask.
+3.	Mansoor Saleh
+  -	Use Case: Payment
+  - Task: The user can pay using a credit/debit card or benefit pay.
+
+
+5.	Mohammed Hamood
+  - Use Case: Customer Services
+  - Task: The user can contact the employee for any service they want to ask.
+
