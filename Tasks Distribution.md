@@ -17,16 +17,16 @@ This document outlines the use case distribution among the team members for the 
    - Use Case: Login and Forgot Password
    - Task: Develop the login feature and implement the forgot password functionality for users to reset their passwords.
 
-2. Yusuf Qamber (Qamber-Yusuf)
+2. **Yusuf Qamber (Qamber-Yusuf)**
    - Use Case: Register
    - Task: Develop the user registration feature to allow new users to create accounts.
 
-3.	Mansoor Saleh
-  -	Use Case: Payment
+3.	**Mansoor Saleh**
+  - Use Case: Payment
   - Task: The user can pay using a credit/debit card or benefit pay.
 
 
-5.	Mohammed Hamood
+5.	**Mohammed Hamood**
   - Use Case: Customer Services
   - Task: The user can contact the employee for any service they want to ask.
 
