@@ -4,9 +4,9 @@ import java.util.Map;
 
 /**
  * public class datalogin {
-    
-}
-// datalogin.java class - Simulates the data access layer for user information.
+
+ }
+ // datalogin.java class - Simulates the data access layer for user information.
  * This class manages user data and handles login credential validation.
  */
 public class datalogin {

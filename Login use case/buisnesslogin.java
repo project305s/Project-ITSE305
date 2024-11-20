@@ -1,5 +1,4 @@
 
-
 // buisnesslogin.java
 /**
  * buisnesslogin class - Core business logic for user login.
@@ -8,7 +7,7 @@
  */
 public class buisnesslogin {
 
- 
+
     private datalogin dataLogin = new datalogin();
 
     /**
