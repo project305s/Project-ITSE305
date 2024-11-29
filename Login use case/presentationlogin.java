@@ -16,22 +16,31 @@ public class presentationlogin {
      * layer for validation. Provides feedback to the user based on the login outcome.
      */
     public void startLogin() {
-        Scanner scanner = new Scanner(System.in);
+        try (Scanner scanner = new Scanner(System.in)) {
+            // Prompt user for username
+            System.out.println("Enter username:");
+            String username = scanner.nextLine().trim();
 
-        // Prompt user for username
-        System.out.println("Enter username:");
-        String username = scanner.nextLine();
+            // Validate username input
+            if (username.isEmpty()) {
+                System.out.println("Username cannot be empty. Please try again.");
+                return;
+            }
 
-        // Prompt user for password
-        System.out.println("Enter password:");
-        String password = scanner.nextLine();
+            // Prompt user for password
+            System.out.println("Enter password:");
+            String password = scanner.nextLine().trim();
 
-        // Login user via business layer and provide feedback
-        String result = loginService.loginUser(username, password);
-        System.out.println(result);
+            // Validate password input
+            if (password.isEmpty()) {
+                System.out.println("Password cannot be empty. Please try again.");
+                return;
+            }
 
-        // Close the scanner resource
-        scanner.close();
+            // Login user via business layer and provide feedback
+            String result = loginService.loginUser(username, password);
+            System.out.println(result);
+        }
     }
 
     public static void main(String[] args) {
