@@ -21,14 +21,13 @@ public class buisnesslogin {
     public String loginUser(String username, String password) {
         // Validate credentials
         if (dataLogin.validateUser(username, password)) {
-            // Check user role (for simplicity, based on username)
-            if ("librarian".equals(username)) {
-                return "Welcome to the Librarian Dashboard.";
-            } else if ("member".equals(username)) {
-                return "Welcome to the Member Dashboard.";
+            // Fetch user role from DataLogin
+            String role = dataLogin.getUserRole(username);
+            if (role != null) {
+                return "Welcome to the " + role + " Dashboard.";
             }
         }
         // Return error message for invalid credentials
-        return "Invalid username or password.";
+        return "Invalid username or password. Please try again.";
     }
 }
