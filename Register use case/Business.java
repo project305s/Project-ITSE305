@@ -27,6 +27,14 @@ public class RegistrationService
         userRepository.saveUser(username, password);
         return true;
 
+        /*
+      * Checks if a password is valid.
+     */
+    private boolean isValidPassword(String password) 
+    {
+        return password != null && password.length() >= MIN_PASSWORD_LENGTH;
+    }
+    
     /**
      * Checks if a Username is valid.
      */
@@ -35,12 +43,6 @@ public class RegistrationService
         return username != null && username.trim().length() >= 3;
             }
 
-    /**
-      * Checks if a password is valid.
-     */
-    private boolean isValidPassword(String password) 
-    {
-        return password != null && password.length() >= MIN_PASSWORD_LENGTH;
-    }
+    
 
 }
