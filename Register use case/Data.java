@@ -23,16 +23,6 @@ public class UserRepository {
         users.put(username, hashedPassword);
     }
 
-     /*
-     * return true if the password is correct, false otherwise
-    */
-    public boolean validatePassword(String username, String password) {
-        if (username == null || password == null) {
-            return false;
-        }
-        String storedHashedPassword = users.get(username);
-        return storedHashedPassword != null && BCrypt.checkpw(password, storedHashedPassword);
-    }
-
+    
 
 }
