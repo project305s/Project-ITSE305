@@ -4,41 +4,32 @@ import java.util.Scanner;
  * presentationforgotpass class - Handles user interaction for the password reset process.
  * This class gathers user input and relays it to the business layer for processing.
  */
-public class presentationforgotpass {
+public class PresentationForgotPass {
 
-    // Instance of businesslogin for processing password reset logic
-    private buisnessforgotpass buisnessForgotpass = new buisnessforgotpass();
+    private BusinessForgotPass businessForgotPass = new BusinessForgotPass();
 
     /**
-     * startPasswordReset - Begins the password reset process by prompting the user
-     * to enter their email address for the reset request.
+     * startPasswordReset - Begins the password reset process.
      */
     public void startPasswordReset() {
         Scanner scanner = new Scanner(System.in);
 
-        // Prompt user for email
-        System.out.println("Enter your registered email address:");
+        System.out.println("Enter email:");
         String email = scanner.nextLine();
 
-        // Request password reset via business layer and provide feedback
-        String result = buisnessForgotpass.requestPasswordReset(email);
-        System.out.println(result);
+        System.out.println(businessForgotPass.requestPasswordReset(email));
 
-        // If the reset link was sent successfully, ask for a new password
-        if (result.startsWith("Password reset link sent")) {
-            System.out.println("Enter your new password:");
-            String newPassword = scanner.nextLine();
-            String updateResult = buisnessForgotpass.resetPassword(email, newPassword);
-            System.out.println(updateResult);
-        }
+        System.out.println("Enter new password:");
+        String newPassword = scanner.nextLine();
 
-        // Close the scanner resource
-        scanner.close();
+        System.out.println(businessForgotPass.resetPassword(email, newPassword));
+
+        scanner.close(); // 
     }
 
     public static void main(String[] args) {
-        presentationforgotpass presentationForgotpass = new presentationforgotpass();
-        presentationForgotpass.startPasswordReset();
+        PresentationForgotPass presentationForgotPass = new PresentationForgotPass();
+        presentationForgotPass.startPasswordReset();
     }
 }
 
