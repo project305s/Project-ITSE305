@@ -1,11 +1,12 @@
+
 /**
- * BusinessForgotPass class - Core business logic for user login and password reset.
+ * buisnessforgotpass class - Core business logic for user login and password reset.
  * This class is responsible for validating user email and updating passwords.
  */
-public class BusinessForgotPass {
+public class buisnessforgotpass {
 
-    // Instance of DataForgotPass for data access
-    private DataForgotPass dataForgotPass = new DataForgotPass();
+    // Instance of datalogin for data access
+    private dataforgotpass dataForgotpass = new dataforgotpass();
 
     /**
      * requestPasswordReset - Handles the logic for requesting a password reset.
@@ -15,12 +16,9 @@ public class BusinessForgotPass {
      * @return String indicating the result of the request
      */
     public String requestPasswordReset(String email) {
-        if (email == null || email.isEmpty()) {
-            return "Email cannot be empty.";
-        }
-        if (dataForgotPass.validateEmail(email)) {
-            String token = dataForgotPass.generateResetToken(email);
-            // Logging or email sending placeholder
+        if (dataForgotpass.validateEmail(email)) {
+            String token = dataForgotpass.generateResetToken(email);
+            // In a real application, send the token via email
             return "Password reset link sent to " + email + ". Token: " + token;
         }
         return "Email address not found.";
@@ -34,13 +32,7 @@ public class BusinessForgotPass {
      * @return String indicating the result of the password reset
      */
     public String resetPassword(String email, String newPassword) {
-        if (newPassword == null || newPassword.isEmpty()) {
-            return "Password cannot be empty.";
-        }
-        if (!dataForgotPass.validateEmail(email)) {
-            return "Email address not found.";
-        }
-        dataForgotPass.updatePassword(email, newPassword);
+        dataForgotpass.updatePassword(email, newPassword);
         return "Password successfully updated.";
     }
 }
