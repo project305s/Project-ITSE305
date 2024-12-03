@@ -25,9 +25,12 @@ public class DataLayer {
 
     /**
      * Retrieves all stored payments.
-     * @return A list of all payments in the repository.
+     * @return A list of all payments.
      */
     public List<Payment> getAllPayments() {
-        return new ArrayList<>(paymentDatabase.values());
+        return DataLayer.getAllPayments();
     }
+
+    
+    
 }
