@@ -22,7 +22,7 @@ public class UserRepository {
         users.put(username, hashedPassword);
     }
 
-   Validates the user's password against the stored hashed password.
+   // Validates the user's password against the stored hashed password.
      /**
      * @return true if the password is correct, false otherwise
     */
