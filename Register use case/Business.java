@@ -2,7 +2,8 @@ package business;
 
 import data.UserRepository;
 
-public class RegistrationService {
+public class RegistrationService 
+{
 
     private final UserRepository userRepository;
 
@@ -25,5 +26,4 @@ public class RegistrationService {
 
         userRepository.saveUser(username, password);
         return true;
-    }
 }
