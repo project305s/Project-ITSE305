@@ -22,7 +22,7 @@ public class PresentationLayer {
      * Displays the main menu for customer service options.
      */
     public void displayMenu() {
-        while (true) { // Changed to a loop to prevent repeated calls to displayMenu
+        while (true) { // Loop to keep displaying the menu
             System.out.println("\nWelcome to the Online Library Customer Service");
             System.out.println("1. Register Customer");
             System.out.println("2. View Customer Details");
