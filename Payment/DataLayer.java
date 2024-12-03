@@ -23,14 +23,7 @@ public class DataLayer {
         return paymentDatabase.get(transactionId);
     }
 
-    /**
-     * Retrieves all stored payments.
-     * @return A list of all payments.
-     */
-    public List<Payment> getAllPayments() {
-        return DataLayer.getAllPayments();
-    }
-
+    
 
     
 }
