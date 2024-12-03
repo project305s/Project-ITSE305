@@ -21,16 +21,4 @@ public class UserRepository {
         String hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt());
         users.put(username, hashedPassword);
     }
-
-   // Validates the user's password against the stored hashed password.
-     /**
-     * @return true if the password is correct, false otherwise
-    */
-    public boolean validatePassword(String username, String password) {
-        if (username == null || password == null) {
-            return false;
-        }
-        String storedHashedPassword = users.get(username);
-        return storedHashedPassword != null && BCrypt.checkpw(password, storedHashedPassword);
-    }
 }
