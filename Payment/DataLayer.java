@@ -23,11 +23,5 @@ public class DataLayer {
         return paymentDatabase.get(transactionId);
     }
 
-    /**
-     * Retrieves all stored payments.
-     * @return A list of all payments in the repository.
-     */
-    public List<Payment> getAllPayments() {
-        return new ArrayList<>(paymentDatabase.values());
-    }
+    
 }
