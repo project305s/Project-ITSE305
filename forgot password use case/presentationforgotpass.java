@@ -1,45 +1,44 @@
-
-
 import java.util.Scanner;
 
 /**
- * presentationforgotpass class - Handles user interaction for the password reset process.
+ * PresentationForgotPass class - Handles user interaction for the password reset process.
  * This class gathers user input and relays it to the business layer for processing.
  */
-public class presentationforgotpass {
+public class PresentationForgotPass {
 
-    // Instance of businesslogin for processing password reset logic
-    private buisnessforgotpass buisnessForgotpass = new buisnessforgotpass();
+    // Instance of BusinessForgotPass for processing password reset logic
+    private BusinessForgotPass businessForgotPass = new BusinessForgotPass();
 
     /**
      * startPasswordReset - Begins the password reset process by prompting the user
      * to enter their email address for the reset request.
      */
     public void startPasswordReset() {
-        Scanner scanner = new Scanner(System.in);
+        try (Scanner scanner = new Scanner(System.in)) {
+            // Prompt user for email
+            System.out.println("Enter your registered email address:");
+            String email = scanner.nextLine().trim();
 
-        // Prompt user for email
-        System.out.println("Enter your registered email address:");
-        String email = scanner.nextLine();
+            // Request password reset via business layer and provide feedback
+            String result = businessForgotPass.requestPasswordReset(email);
+            System.out.println(result);
 
-        // Request password reset via business layer and provide feedback
-        String result = buisnessForgotpass.requestPasswordReset(email);
-        System.out.println(result);
+            // If the reset link was sent successfully, ask for a new password
+            if (result.startsWith("Password reset link sent")) {
+                System.out.println("Enter your new password:");
+                String newPassword = scanner.nextLine().trim();
 
-        // If the reset link was sent successfully, ask for a new password
-        if (result.startsWith("Password reset link sent")) {
-            System.out.println("Enter your new password:");
-            String newPassword = scanner.nextLine();
-            String updateResult = buisnessForgotpass.resetPassword(email, newPassword);
-            System.out.println(updateResult);
+                // Update the password
+                String updateResult = businessForgotPass.resetPassword(email, newPassword);
+                System.out.println(updateResult);
+            }
+        } catch (Exception e) {
+            System.out.println("An error occurred: " + e.getMessage());
         }
-
-        // Close the scanner resource
-        scanner.close();
     }
 
     public static void main(String[] args) {
-        presentationforgotpass presentationForgotpass = new presentationforgotpass();
-        presentationForgotpass.startPasswordReset();
+        PresentationForgotPass presentationForgotPass = new PresentationForgotPass();
+        presentationForgotPass.startPasswordReset();
     }
 }

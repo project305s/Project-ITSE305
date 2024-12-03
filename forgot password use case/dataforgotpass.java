@@ -1,17 +1,18 @@
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 /**
- * datalogin class - Simulates the data access layer for user information.
+ * DataForgotPass class - Simulates the data access layer for user information.
  * This class manages user data and handles password reset functionality.
  */
-public class dataforgotpass {
+public class DataForgotPass {
 
     // Simulated user database for demonstration purposes
     private Map<String, String> usersDatabase = new HashMap<>();
     private Map<String, String> resetTokens = new HashMap<>(); // Stores reset tokens
 
-    public dataforgotpass() {
+    public DataForgotPass() {
         // Adding sample users for demonstration
         usersDatabase.put("librarian@example.com", "librarianPassword");
         usersDatabase.put("member@example.com", "memberPassword");
@@ -24,17 +25,20 @@ public class dataforgotpass {
      * @return boolean indicating if the email exists
      */
     public boolean validateEmail(String email) {
-        return usersDatabase.containsKey(email);
+        return email != null && usersDatabase.containsKey(email);
     }
 
     /**
-     * generateResetToken - Generates a token for password reset and stores it.
+     * generateResetToken - Generates a unique token for password reset and stores it.
      *
      * @param email The user's email address
      * @return String representing the reset token
      */
     public String generateResetToken(String email) {
-        String token = "resetToken"; // In a real application, generate a unique token
+        if (!validateEmail(email)) {
+            throw new IllegalArgumentException("Invalid email address.");
+        }
+        String token = UUID.randomUUID().toString(); // Generate a unique token
         resetTokens.put(token, email);
         return token;
     }
@@ -46,6 +50,9 @@ public class dataforgotpass {
      * @param newPassword The new password to be set
      */
     public void updatePassword(String email, String newPassword) {
+        if (!validateEmail(email)) {
+            throw new IllegalArgumentException("Invalid email address.");
+        }
         usersDatabase.put(email, newPassword);
     }
 }

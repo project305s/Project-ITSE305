@@ -1,13 +1,11 @@
-
-
 /**
- * buisnessforgotpass class - Core business logic for user login and password reset.
+ * BusinessForgotPass class - Core business logic for user login and password reset.
  * This class is responsible for validating user email and updating passwords.
  */
-public class buisnessforgotpass {
+public class BusinessForgotPass {
 
-    // Instance of datalogin for data access
-    private dataforgotpass dataForgotpass = new dataforgotpass();
+    // Instance of DataForgotPass for data access
+    private DataForgotPass dataForgotPass = new DataForgotPass();
 
     /**
      * requestPasswordReset - Handles the logic for requesting a password reset.
@@ -17,9 +15,12 @@ public class buisnessforgotpass {
      * @return String indicating the result of the request
      */
     public String requestPasswordReset(String email) {
-        if (dataForgotpass.validateEmail(email)) {
-            String token = dataForgotpass.generateResetToken(email);
-            // In a real application, send the token via email
+        if (email == null || email.isEmpty()) {
+            return "Email cannot be empty.";
+        }
+        if (dataForgotPass.validateEmail(email)) {
+            String token = dataForgotPass.generateResetToken(email);
+            // Logging or email sending placeholder
             return "Password reset link sent to " + email + ". Token: " + token;
         }
         return "Email address not found.";
@@ -33,8 +34,13 @@ public class buisnessforgotpass {
      * @return String indicating the result of the password reset
      */
     public String resetPassword(String email, String newPassword) {
-        dataForgotpass.updatePassword(email, newPassword);
+        if (newPassword == null || newPassword.isEmpty()) {
+            return "Password cannot be empty.";
+        }
+        if (!dataForgotPass.validateEmail(email)) {
+            return "Email address not found.";
+        }
+        dataForgotPass.updatePassword(email, newPassword);
         return "Password successfully updated.";
     }
 }
-
