@@ -28,6 +28,10 @@ public class Payment {
         return amount;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
     
 
     @Override
