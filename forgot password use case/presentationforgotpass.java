@@ -1,13 +1,13 @@
 import java.util.Scanner;
 
 /**
- * presentationforgotpass class - Handles user interaction for the password reset process.
+ * PresentationForgotPass class - Handles user interaction for the password reset process.
  * This class gathers user input and relays it to the business layer for processing.
  */
-public class presentationforgotpass {
+public class PresentationForgotPass {
 
-    // Instance of businesslogin for processing password reset logic
-    private buisnessforgotpass buisnessForgotpass = new buisnessforgotpass();
+    // Instance of BusinessForgotPass for processing password reset logic
+    private BusinessForgotPass businessForgotPass = new BusinessForgotPass();
 
     /**
      * startPasswordReset - Begins the password reset process by prompting the user
@@ -21,14 +21,14 @@ public class presentationforgotpass {
         String email = scanner.nextLine();
 
         // Request password reset via business layer and provide feedback
-        String result = buisnessForgotpass.requestPasswordReset(email);
+        String result = businessForgotPass.requestPasswordReset(email);
         System.out.println(result);
 
         // If the reset link was sent successfully, ask for a new password
         if (result.startsWith("Password reset link sent")) {
             System.out.println("Enter your new password:");
             String newPassword = scanner.nextLine();
-            String updateResult = buisnessForgotpass.resetPassword(email, newPassword);
+            String updateResult = businessForgotPass.resetPassword(email, newPassword);
             System.out.println(updateResult);
         }
 
@@ -37,8 +37,7 @@ public class presentationforgotpass {
     }
 
     public static void main(String[] args) {
-        presentationforgotpass presentationForgotpass = new presentationforgotpass();
-        presentationForgotpass.startPasswordReset();
+        PresentationForgotPass presentationForgotPass = new PresentationForgotPass();
+        presentationForgotPass.startPasswordReset();
     }
 }
-

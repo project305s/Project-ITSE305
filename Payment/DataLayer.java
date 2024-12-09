@@ -1,5 +1,3 @@
-// DataLayer.java
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -28,9 +26,6 @@ public class DataLayer {
      * @return A list of all payments.
      */
     public List<Payment> getAllPayments() {
-        return DataLayer.getAllPayments();
+        return new ArrayList<>(paymentDatabase.values());
     }
-
-    
-    
 }

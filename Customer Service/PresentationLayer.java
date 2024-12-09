@@ -1,4 +1,3 @@
-
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -34,13 +33,17 @@ public class PresentationLayer {
                 int choice = scanner.nextInt();
                 scanner.nextLine(); // Consume newline
                 switch (choice) {
-                    case 1 -> registerCustomer();
-                    case 2 -> viewCustomerDetails();
-                    case 3 -> {
+                    case 1:
+                        registerCustomer();
+                        break;
+                    case 2:
+                        viewCustomerDetails();
+                        break;
+                    case 3:
                         System.out.println("Exiting... Thank you!");
                         return; // Exit the application
-                    }
-                    default -> System.out.println("Invalid choice. Please select a valid option.");
+                    default:
+                        System.out.println("Invalid choice. Please select a valid option.");
                 }
             } catch (InputMismatchException e) {
                 System.out.println("Invalid input. Please enter a number.");
